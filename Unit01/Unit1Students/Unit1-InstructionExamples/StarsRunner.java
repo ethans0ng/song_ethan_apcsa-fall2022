@@ -1,10 +1,10 @@
 //� A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Ethan Song
+//Date - 08/19/22
+//Class - APCSA
+//Lab  - Stars Runner
 
 import static java.lang.System.*;
 
