@@ -13,27 +13,36 @@ import static java.lang.Math.*;
 
 public class MilesPerHour
 {
-	public double speed;
-	public int distance, hours, minutes;
+	private int distance, hours, minutes;
+	private double mph;
+
+
 	public MilesPerHour(int dist, int hrs, int mins)
+	{
+		setNums(dist,hrs,mins);
+	}
+
+	public void setNums(int dist, int hrs, int mins)
 	{
 		distance = dist;
 		hours = hrs;
 		minutes = mins;
-		speed = (double)dist/(hrs+mins/60); 
 	}
 
-
-
+	public void calcMPH()
+	{
+		int timeMinutes = minutes + (60 * hours);
+		float timeHours = timeMinutes/60.0f;
+		mph = distance/timeHours;
+	}
+	
 	public void print()
 	{
-		out.println(distance + " miles in " + hours + " hour(s) and " + minutes + " minutes = " + speed + " MPH.");
+		String d,h,m,mp;
+		d = (""+distance);
+		h = (""+hours);
+		m = (""+minutes);
+		rate = ("" + Math.floor(1000 * mph) / 1000);
+		System.out.printf(d + " miles in " + h + (hours > 1 ? " hours and " : " hour and ") + m + (minutes > 1 ? " minutes = " : " minute = ") + rate + " MPH.");
 	}
 	
-	//create a print or toString or both
-	
-	public String toString()
-	{
-		return "";
-	}
-}
