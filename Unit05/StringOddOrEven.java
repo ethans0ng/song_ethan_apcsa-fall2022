@@ -34,6 +34,9 @@ public class StringOddOrEven
 
  	public String toString()
  	{
- 		return word + " is " + isEven();
+ 		if(isEven()) {
+ 			return word + " is even.";
+ 		}
+ 		return word + " is odd.";
 	}
 }
