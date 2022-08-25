@@ -3,8 +3,8 @@ package Unit05;
 //www.apluscompsci.com
 //Name - Ethan Song
 //Date - 08/24/22
-//Class -
-//Lab  -
+//Class - APCSA	
+//Lab  - StringOddOrEven
 
 import static java.lang.System.*;
 import java.util.Scanner;
