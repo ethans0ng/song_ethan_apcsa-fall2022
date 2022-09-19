@@ -17,7 +17,6 @@ public class Deck {
 	 */
 	private int size;
 
-
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		size = ranks.length * suits.length;
 		cards = new Card[size];
@@ -26,6 +25,7 @@ public class Deck {
 				cards[ranks.length*tony+i] = new Card(ranks[i], suits[tony], values[i]);
 			}
 		}
+		shuffle();
 	}
 
 	public boolean isEmpty() {
@@ -45,7 +45,19 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		size = cards.length;
+		int[] shuffled = new int[cards.length];
+		for(int i=0; i<size; i++) {
+			shuffled[i] = i;
+		}
+		Shuffler.VALUE_COUNT = cards.length;
+		shuffled = Shuffler.selectionShuffle(shuffled);
+		
+		Card[] newcard = new Card[shuffled.length];
+		for(int i=0; i<size; i++) {
+			newcard[i] = cards[shuffled[i]];
+		}
+		cards = newcard;
 	}
 
 	/**
@@ -54,8 +66,12 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
+		if(size==0) {
+			return null;
+		}
 		size --;
 		return cards[size];
+
 	}
 
 	/**
